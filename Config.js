@@ -6,7 +6,7 @@ module.exports = {
     // UDP port
     server_port: 17091,
     // login url dashboard
-    loginurl: "o",
+    loginurl: "",
     // for new server header
     type2: true,
     // meta
