@@ -1,175 +1,179 @@
 /* dashboard.css */
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
 .card {
-    background: rgba(30, 41, 59, 0.85);
-    padding: 28px 18px;
-    border-radius: 18px;
-    box-shadow: 0 8px 32px 0 rgba(16, 24, 40, 0.25);
-    max-width: 340px;
+    background: rgba(30, 41, 59, 0.90);
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(16, 24, 40, 0.18);
+    max-width: 280px;
     width: 100%;
     text-align: center;
     animation: fadeIn 0.6s cubic-bezier(.4,0,.2,1);
-    border: 1.5px solid rgba(56, 189, 248, 0.15);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    transition: box-shadow 0.2s;
-}
-
-.card:hover, .card:focus-within {
-    box-shadow: 0 12px 40px 0 rgba(56, 189, 248, 0.18);
-    border-color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.10);
+    backdrop-filter: blur(6px);
 }
 
 .logo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 18px;
+    margin-bottom: 10px;
 }
 
 .logo img {
-    width: 44px;
-    height: 44px;
-    margin-bottom: 8px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.10);
+    width: 28px;
+    height: 28px;
+    margin-bottom: 4px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(56, 189, 248, 0.08);
 }
 
 .logo h1 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: #38bdf8;
-    margin: 0;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.logo p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 16px;
 }
 
 form .form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
 }
 
 .input {
-    position: relative;
     display: flex;
     align-items: center;
-    background: rgba(51, 65, 85, 0.85);
-    border-radius: 10px;
-    padding: 10px 12px;
-    gap: 8px;
-    border: 1.5px solid transparent;
-    transition: border 0.2s, box-shadow 0.2s;
-    box-shadow: 0 1px 4px rgba(30, 41, 59, 0.08);
+    background: #334155;
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid transparent;
+    transition: border 0.2s;
 }
 
 .input:focus-within {
-    border: 1.5px solid #38bdf8;
-    box-shadow: 0 0 0 2px #38bdf880;
+    border: 1px solid #38bdf8;
 }
 
 .input svg {
     color: #94a3b8;
-    font-size: 1.1rem;
+    margin-right: 8px;
 }
 
 .input input {
     background: transparent;
     border: none;
     outline: none;
-    color: #fff;
+    color: #ffffff;
+    font-size: 0.9rem;
     width: 100%;
-    font-size: 1rem;
-    padding: 4px 0;
-    letter-spacing: 0.01em;
-}
-
-label {
-    display: block;
-    margin-bottom: 3px;
-    color: #cbd5e1;
-    text-align: left;
-    font-weight: 600;
-    font-size: 0.97rem;
-    letter-spacing: 0.01em;
 }
 
 .button {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 8px;
+    gap: 6px;
+    margin-top: 4px;
 }
 
 .button button {
     width: 100%;
-    padding: 10px 0;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.button .login {
     background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
-    color: #fff;
+    color: #ffffff;
     border: none;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 1.05rem;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(56, 189, 248, 0.10);
-    transition: background 0.2s, box-shadow 0.2s, color 0.2s;
 }
 
-.button button:hover, .button button:focus {
-    background: linear-gradient(90deg, #0ea5e9 0%, #38bdf8 100%);
-    box-shadow: 0 4px 16px rgba(56, 189, 248, 0.18);
-    color: #fff;
-}
-
-#toggleLogPassword {
-    background: none;
-    border: none;
-    color: #94a3b8;
-    cursor: pointer;
-    font-size: 1.1rem;
-    margin-left: 6px;
-    transition: color 0.2s;
-}
-#toggleLogPassword:hover {
+.button .guest {
+    background: transparent;
     color: #38bdf8;
+    border: 1px solid #38bdf8;
 }
 
-p {
-    font-size: 0.93rem;
-    margin-bottom: 18px;
-    color: #94a3b8;
-    letter-spacing: 0.01em;
+.button .guest:hover {
+    background: #38bdf8;
+    color: #ffffff;
+}
+
+.footer a {
+    font-size: 0.85rem;
+    color: #38bdf8;
+    text-decoration: underline;
+    margin-top: 12px;
+    display: block;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(24px) scale(0.97);}
+    from { opacity: 0; transform: translateY(18px) scale(0.97);}
     to { opacity: 1; transform: translateY(0) scale(1);}
 }
 
 /* Responsive for mobile */
 @media (max-width: 480px) {
     .card {
-        padding: 12px 2px;
+        padding: 8px 2px;
         margin: 0 2px;
-        border-radius: 10px;
-        max-width: 98vw;
+        border-radius: 8px;
+        max-width: 96vw;
     }
     .logo img {
-        width: 32px;
-        height: 32px;
+        width: 22px;
+        height: 22px;
     }
     .logo h1 {
-        font-size: 0.98rem;
+        font-size: 0.85rem;
+    }
+    .button button {
+        font-size: 0.93rem;
+        padding: 6px 0;
+    }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(18px) scale(0.97);}
+    to { opacity: 1; transform: translateY(0) scale(1);}
+}
+
+/* Responsive for mobile */
+@media (max-width: 480px) {
+    .card {
+        padding: 8px 2px;
+        margin: 0 2px;
+        border-radius: 8px;
+        max-width: 96vw;
+    }
+    .logo img {
+        width: 22px;
+        height: 22px;
+    }
+    .logo h1 {
+        font-size: 0.85rem;
+    }
+    .button button {
+        font-size: 0.93rem;
+        padding: 6px 0;
     }
 }

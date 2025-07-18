@@ -4,7 +4,7 @@ const path = require('path');
 const ejs = require('ejs');
 const bodyParser = require('body-parser');
 
-// creating an express app
+// creating an express appf
 const app = express();
 
 // setting the middleware
