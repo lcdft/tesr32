@@ -8,21 +8,21 @@
 
 html, body {
   height: 100%;
-  overflow: hidden;
 }
 
 body {
   font-family: "Inter", system-ui, sans-serif;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 30%, #2a2a2a 100%);
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 30%, #16213e 70%, #0f3460 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 16px;
+  padding: 20px;
   position: relative;
+  overflow: hidden;
 }
 
-/* Subtle animated background */
+/* Animated background elements */
 body::before {
   content: '';
   position: fixed;
@@ -31,39 +31,59 @@ body::before {
   width: 100%;
   height: 100%;
   background: 
-    radial-gradient(circle at 25% 50%, rgba(50, 50, 50, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 75% 25%, rgba(60, 60, 60, 0.08) 0%, transparent 50%);
-  animation: subtleFloat 15s ease-in-out infinite;
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.06) 0%, transparent 50%);
+  animation: float 20s ease-in-out infinite;
   z-index: -1;
 }
 
-@keyframes subtleFloat {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
 }
 
 .card {
   width: 100%;
-  max-width: 380px;
-  max-height: 85vh;
-  padding: 32px 28px;
-  background: rgba(20, 20, 20, 0.95);
+  max-width: 400px;
+  padding: 40px 35px;
+  background: rgba(26, 27, 38, 0.95);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(80, 80, 80, 0.3);
-  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
   box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 25px 50px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  color: #e5e5e5;
-  overflow-y: auto;
-  transition: all 0.3s ease;
+  color: #e2e8f0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(120, 119, 198, 0.1) 0%, rgba(255, 119, 198, 0.05) 100%);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   box-shadow: 
-    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 35px 70px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .logo {
@@ -71,155 +91,207 @@ body::before {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 28px;
+  margin-bottom: 35px;
 }
 
 .logo h1 {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #00ff88 0%, #00d4ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .logo p {
-  font-size: 14px;
-  color: #888888;
+  font-size: 15px;
+  color: #8892b0;
+  font-weight: 400;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 .input {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: rgba(30, 30, 30, 0.8);
-  border: 1px solid rgba(80, 80, 80, 0.3);
-  border-radius: 12px;
-  padding: 0 16px;
-  transition: all 0.3s ease;
+  background: rgba(30, 35, 50, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 0 18px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
 }
 
 .input:focus-within {
-  border-color: rgba(120, 120, 120, 0.6);
-  background: rgba(30, 30, 30, 0.95);
-  box-shadow: 0 0 0 3px rgba(120, 120, 120, 0.1);
+  border-color: #00ff88;
+  background: rgba(30, 35, 50, 0.95);
+  box-shadow: 
+    0 0 0 3px rgba(0, 255, 136, 0.15),
+    0 8px 25px rgba(0, 255, 136, 0.1);
+  transform: translateY(-2px);
 }
 
 .input svg,
 .input i {
-  color: #666666;
+  color: #8892b0;
   flex-shrink: 0;
+  font-size: 18px;
 }
 
 .input input {
   flex: 1;
-  padding: 14px 0;
+  padding: 16px 0;
   background: transparent;
   border: none;
   outline: none;
-  color: #e5e5e5;
+  color: #ffffff;
   font-size: 15px;
+  font-weight: 400;
 }
 
 .input input::placeholder {
-  color: #666666;
+  color: #64748b;
 }
 
 #toggleLogPassword {
   cursor: pointer;
   background: none;
   border: none;
-  color: #666666;
-  font-size: 16px;
-  padding: 6px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
+  color: #8892b0;
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 #toggleLogPassword:hover {
-  color: #888888;
+  color: #e2e8f0;
   background: rgba(255, 255, 255, 0.05);
 }
 
 .button {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 8px;
+  gap: 14px;
+  margin-top: 10px;
 }
 
 .button button {
   width: 100%;
-  padding: 14px 16px;
+  padding: 16px 0;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   font-weight: 600;
-  font-size: 15px;
+  font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
 }
 
-/* Main login button - subtle dark theme */
+/* Main login button */
 .button button:first-child {
-  background: linear-gradient(135deg, #404040 0%, #505050 100%);
-  color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #00ff88 0%, #00d4ff 50%, #0099ff 100%);
+  color: #0f0f23;
+  box-shadow: 
+    0 10px 25px rgba(0, 255, 136, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.button button:first-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
 }
 
 .button button:first-child:hover {
-  background: linear-gradient(135deg, #505050 0%, #606060 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 35px rgba(0, 255, 136, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-/* Guest button - darker green */
+.button button:first-child:hover::before {
+  left: 100%;
+}
+
+/* Guest button */
 #guestButton {
-  background: linear-gradient(135deg, #2d4a2d 0%, #3a5a3a 100%);
+  background: linear-gradient(135deg, #46c536 0%, #00b14d 100%);
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 
+    0 10px 25px rgba(70, 197, 54, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 #guestButton:hover {
-  background: linear-gradient(135deg, #3a5a3a 0%, #476647 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 16px 36px rgba(70, 197, 54, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32);
 }
 
-/* Very small screens */
-@media (max-width: 400px) {
+/* Responsive Design */
+@media (max-width: 480px) {
+  body {
+    padding: 16px;
+  }
+  
   .card {
-    padding: 24px 20px;
+    padding: 32px 28px;
     max-width: 95vw;
   }
   
   .logo h1 {
-    font-size: 22px;
+    font-size: 24px;
+  }
+  
+  .form {
+    gap: 18px;
+  }
+  
+  .input {
+    padding: 0 16px;
+  }
+  
+  .input input {
+    padding: 14px 0;
+  }
+  
+  .button button {
+    padding: 14px 0;
+    font-size: 15px;
+  }
+}
+
+/* Landscape mobile devices */
+@media (max-width: 800px) and (orientation: landscape) {
+  .card {
+    max-width: 350px;
+    padding: 28px 32px;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+  }
+  
+  .logo {
+    margin-bottom: 25px;
   }
   
   .form {
     gap: 16px;
-  }
-}
-
-/* Short screens */
-@media (max-height: 600px) {
-  .card {
-    padding: 20px 24px;
-    max-height: 90vh;
-  }
-  
-  .logo {
-    margin-bottom: 20px;
-  }
-  
-  .form {
-    gap: 14px;
   }
   
   .input input {
@@ -227,128 +299,70 @@ body::before {
   }
   
   .button button {
-    padding: 12px 16px;
+    padding: 12px 0;
   }
 }
 
-/* Extra short screens */
-@media (max-height: 500px) {
+/* Short screens */
+@media (max-height: 650px) {
+  .card {
+    padding: 30px 32px;
+  }
+  
+  .logo {
+    margin-bottom: 25px;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+  }
+}
+
+/* Very short screens */
+@media (max-height: 550px) {
   body {
-    padding: 8px;
+    padding: 12px;
   }
   
   .card {
-    padding: 16px 20px;
-    max-height: 95vh;
-  }
-  
-  .logo h1 {
-    font-size: 20px;
+    padding: 24px 28px;
   }
   
   .logo {
-    margin-bottom: 16px;
-  }
-}
-/* Mobile landscape fixes - smaller width and better spacing */
-@media (max-width: 800px) and (orientation: landscape) {
-  .card {
-    max-width: 320px;
-    padding: 20px 24px;
-    max-height: 80vh;
+    margin-bottom: 20px;
   }
   
   .logo h1 {
-    font-size: 20px;
-  }
-  
-  .logo {
-    margin-bottom: 16px;
+    font-size: 22px;
   }
   
   .form {
-    gap: 12px;
-  }
-  
-  .input input {
-    padding: 10px 0;
-  }
-  
-  .button button {
-    padding: 10px 12px;
-    font-size: 14px;
+    gap: 14px;
   }
 }
 
-/* Extra small mobile landscape */
-@media (max-width: 700px) and (orientation: landscape),
-       (max-height: 450px) {
-  body {
-    padding: 8px;
-  }
-  
-  .card {
-    max-width: 280px;
-    padding: 16px 20px;
-    max-height: 85vh;
-  }
-  
-  .logo h1 {
-    font-size: 18px;
-  }
-  
-  .logo p {
-    font-size: 12px;
-  }
-  
-  .logo {
-    margin-bottom: 12px;
-  }
-  
-  .form {
-    gap: 10px;
-  }
-  
-  .input {
-    padding: 0 12px;
-  }
-  
-  .input input {
-    padding: 8px 0;
-    font-size: 14px;
-  }
-  
-  .button {
-    gap: 8px;
-    margin-top: 4px;
-  }
-  
-  .button button {
-    padding: 8px 12px;
-    font-size: 13px;
-  }
+/* Animation for form elements */
+.input {
+  opacity: 0;
+  animation: slideUpFade 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Very small phones in landscape */
-@media (max-width: 600px) and (orientation: landscape) {
-  .card {
-    max-width: 250px;
-    padding: 12px 16px;
+.input:nth-child(1) { animation-delay: 0.1s; }
+.input:nth-child(2) { animation-delay: 0.2s; }
+
+.button {
+  opacity: 0;
+  animation: slideUpFade 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  
-  .logo h1 {
-    font-size: 16px;
-  }
-  
-  .form {
-    gap: 8px;
-  }
-  
-  .input input {
-    font-size: 13px;
-  }
-  
-  .button button {
-    font-size: 12px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
