@@ -250,3 +250,105 @@ body::before {
     margin-bottom: 16px;
   }
 }
+/* Mobile landscape fixes - smaller width and better spacing */
+@media (max-width: 800px) and (orientation: landscape) {
+  .card {
+    max-width: 320px;
+    padding: 20px 24px;
+    max-height: 80vh;
+  }
+  
+  .logo h1 {
+    font-size: 20px;
+  }
+  
+  .logo {
+    margin-bottom: 16px;
+  }
+  
+  .form {
+    gap: 12px;
+  }
+  
+  .input input {
+    padding: 10px 0;
+  }
+  
+  .button button {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Extra small mobile landscape */
+@media (max-width: 700px) and (orientation: landscape),
+       (max-height: 450px) {
+  body {
+    padding: 8px;
+  }
+  
+  .card {
+    max-width: 280px;
+    padding: 16px 20px;
+    max-height: 85vh;
+  }
+  
+  .logo h1 {
+    font-size: 18px;
+  }
+  
+  .logo p {
+    font-size: 12px;
+  }
+  
+  .logo {
+    margin-bottom: 12px;
+  }
+  
+  .form {
+    gap: 10px;
+  }
+  
+  .input {
+    padding: 0 12px;
+  }
+  
+  .input input {
+    padding: 8px 0;
+    font-size: 14px;
+  }
+  
+  .button {
+    gap: 8px;
+    margin-top: 4px;
+  }
+  
+  .button button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+/* Very small phones in landscape */
+@media (max-width: 600px) and (orientation: landscape) {
+  .card {
+    max-width: 250px;
+    padding: 12px 16px;
+  }
+  
+  .logo h1 {
+    font-size: 16px;
+  }
+  
+  .form {
+    gap: 8px;
+  }
+  
+  .input input {
+    font-size: 13px;
+  }
+  
+  .button button {
+    font-size: 12px;
+  }
+}
