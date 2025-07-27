@@ -15,20 +15,22 @@ body {
     height: 100vh;
 }
 
+/* CARD = login container box */
 .card {
-    background-color: #2a4f6c;
     padding: 25px 25px 35px 25px;
+    border: 5px solid #7ca8c3;
     border-radius: 10px;
+    background-color: #2a4f6c;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     color: white;
     width: 600px;
     min-height: 350px;
-    border: 5px solid #7ca8c3;
     animation: containerFadeIn 0.5s ease-out;
     transition: all 0.3s ease;
     text-align: center;
 }
 
+/* Logo or title */
 .logo {
     display: flex;
     align-items: center;
@@ -40,6 +42,7 @@ body {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+/* Form container */
 .form {
     margin-top: 10px;
     display: flex;
@@ -48,24 +51,26 @@ body {
     gap: 10px;
 }
 
+/* Input wrapper */
 .input {
-    width: 70%;
     display: flex;
     align-items: center;
     background-color: #1c6586;
+    padding-left: 10px;
+    width: 70%;
     border: 2px solid #7ab9d4;
     border-radius: 5px;
-    padding-left: 10px;
     transition: all 0.3s ease;
 }
 
+/* Actual input field */
 input {
-    width: 100%;
     padding: 12px;
     background-color: transparent;
-    border: none;
+    width: 100%;
     color: white;
     font-size: 16px;
+    border: none;
     outline: none;
 }
 
@@ -78,10 +83,11 @@ input:focus {
     box-shadow: 0 0 15px rgba(122, 185, 212, 0.3);
 }
 
+/* Show/hide password icon */
+#toggleLogPassword,
 #toggleLogPassword:hover,
 #toggleLogPassword:active,
-#toggleLogPassword:focus,
-#toggleLogPassword {
+#toggleLogPassword:focus {
     background: transparent;
     border: none;
     color: white;
@@ -89,6 +95,7 @@ input:focus {
     outline: none;
 }
 
+/* Button container */
 .button {
     display: flex;
     justify-content: center;
@@ -98,16 +105,16 @@ input:focus {
     margin-top: 5px;
 }
 
+/* Login button */
 .button button {
-    background-color: #02b8ff;
-    color: white;
     padding: 10px 0;
-    width: calc(72% + 27px);
-    border: none;
+    background-color: #02b8ff;
     border-radius: 5px;
-    font-size: 20px;
+    color: white;
     cursor: pointer;
     font-weight: bold;
+    font-size: 20px;
+    width: calc(72% + 27px);
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     border: 2px solid #78c1dc;
@@ -124,11 +131,13 @@ input:focus {
     transform: translateY(1px);
 }
 
+/* Guest button */
 #guestButton {
     background-color: #46c536e8;
     color: white;
 }
 
+/* Fade-in animation */
 @keyframes containerFadeIn {
     from {
         opacity: 0;
