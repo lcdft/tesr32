@@ -1,150 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Arial", sans-serif;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
 body {
-    background-color: white;
+    background: transparent;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-/* CARD = login container box */
 .card {
-    padding: 25px 25px 35px 25px;
-    border: 5px solid #7ca8c3;
+    padding: 20px;
+    border: 3px solid #1b6385;
     border-radius: 10px;
-    background-color: #2a4f6c;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    color: white;
-    width: 600px;
-    min-height: 350px;
-    animation: containerFadeIn 0.5s ease-out;
-    transition: all 0.3s ease;
-    text-align: center;
+    background: linear-gradient(45deg, #1e698b, #194b6de8, #1e698b);
+    box-shadow: inset -2px 2px 0 #1760a5;
+    color: #eeeeee;
+    box-shadow: 0 5px 10px #19406d;
 }
 
-/* Logo or title */
 .logo {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
-    margin-bottom: 30px;
-    font-size: 26px;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
 }
 
-/* Form container */
 .form {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 10px;
 }
 
-/* Input wrapper */
 .input {
     display: flex;
     align-items: center;
-    background-color: #1c6586;
-    padding-left: 10px;
-    width: 70%;
-    border: 2px solid #7ab9d4;
+    gap: 8px;
+    background-color: #194b6de8;
+    padding-left: 8px;
+    border: 1px solid #1760a5;
     border-radius: 5px;
-    transition: all 0.3s ease;
 }
 
-/* Actual input field */
-input {
-    padding: 12px;
-    background-color: transparent;
-    width: 100%;
-    color: white;
-    font-size: 16px;
-    border: none;
-    outline: none;
-}
-
-input::placeholder {
-    color: #7ab9d4;
-}
-
-input:focus {
-    transform: scale(1.02);
-    box-shadow: 0 0 15px rgba(122, 185, 212, 0.3);
-}
-
-/* Show/hide password icon */
-#toggleLogPassword,
-#toggleLogPassword:hover,
-#toggleLogPassword:active,
-#toggleLogPassword:focus {
-    background: transparent;
-    border: none;
-    color: white;
+#toggleLogPassword:hover, #toggleLogPassword:active, #toggleLogPassword:focus, #toggleLogPassword {
     cursor: pointer;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    color: #eeeeee;
+}
+
+input {
+    padding: 8px 0;
+    background: transparent;
+    width: 100%;
+    color: #eeeeee;
+}
+
+input, input:focus, input:active, input:hover, button {
+    border: none;
     outline: none;
 }
 
-/* Button container */
 .button {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
-    width: 100%;
-    margin-top: 5px;
 }
 
-/* Login button */
 .button button {
-    padding: 10px 0;
-    background-color: #02b8ff;
+    padding: 8px 10px;
+    background-color: #1b81e0;
     border-radius: 5px;
-    color: white;
+    color: #eeeeee;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 20px;
-    width: calc(72% + 27px);
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    border: 2px solid #78c1dc;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    font-size: 1rem;
+    width: 100%;
 }
 
-.button button:hover {
-    background-color: #00a0e0;
-    transform: translateY(-2px);
-    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.4);
-}
-
-.button button:active {
-    transform: translateY(1px);
-}
-
-/* Guest button */
 #guestButton {
     background-color: #46c536e8;
-    color: white;
-}
-
-/* Fade-in animation */
-@keyframes containerFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    color: #eeeeee;
 }
