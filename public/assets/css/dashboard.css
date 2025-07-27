@@ -1,222 +1,252 @@
-/* ====== Login – Dark / Glass Theme ====== */
-/* If you prefer to keep the old file, just
-   create  login-dark.css  and link it after
-   dashboard.css in your template            */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-:root {
-  --gt-purple: #7c3aed;
-  --gt-cyan  : #00d4ff;
-  --gt-green : #00ff88;
-  --gt-bg-1  : #0f0f23;
-  --gt-bg-2  : #1a1a2e;
-  --gt-bg-3  : #16213e;
-  --gt-border: rgba(255,255,255,.08);
-  --gt-text  : #e2e8f0;
-  --gt-muted : #8892b0;
-  --radius   : 18px;
-  --blur     : 20px;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+html, body {
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
   font-family: "Inter", system-ui, sans-serif;
-  background: linear-gradient(135deg,var(--gt-bg-1) 0%,var(--gt-bg-2) 35%,var(--gt-bg-3) 100%);
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 30%, #2a2a2a 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:24px;
-  overflow:hidden;
+  padding: 16px;
+  position: relative;
 }
 
-/* Subtle moving blobs in the background */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(circle at 20% 60%,rgba(124,58,237,.10) 0%,transparent 55%),
-    radial-gradient(circle at 80% 25%,rgba(0,212,255,.08) 0%,transparent 55%),
-    radial-gradient(circle at 50% 90%,rgba(0,255,136,.06) 0%,transparent 55%);
-  animation:float 22s ease-in-out infinite;
-  z-index:-1;
+/* Subtle animated background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 25% 50%, rgba(50, 50, 50, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 25%, rgba(60, 60, 60, 0.08) 0%, transparent 50%);
+  animation: subtleFloat 15s ease-in-out infinite;
+  z-index: -1;
 }
 
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%    {transform:translateY(-20px);}
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
-/* ─── Card ───────────────────────────── */
-.card{
-  width:100%;
-  max-width:420px;
-  padding:48px 44px;
-  border-radius:var(--radius);
-  border:1px solid var(--gt-border);
-  background:rgba(26,27,38,.92);
-  backdrop-filter:blur(var(--blur));
-  box-shadow:
-    0 25px 50px rgba(0,0,0,.35),
-    0 0 0 1px var(--gt-border),
-    inset 0 1px 0 rgba(255,255,255,.12);
-  transition:transform .35s cubic-bezier(.4,0,.2,1),
-             box-shadow .35s cubic-bezier(.4,0,.2,1);
-}
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:
-    0 35px 70px rgba(0,0,0,.45),
-    0 0 0 1px rgba(255,255,255,.10),
-    inset 0 1px 0 rgba(255,255,255,.18);
+.card {
+  width: 100%;
+  max-width: 380px;
+  max-height: 85vh;
+  padding: 32px 28px;
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(80, 80, 80, 0.3);
+  border-radius: 16px;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  color: #e5e5e5;
+  overflow-y: auto;
+  transition: all 0.3s ease;
 }
 
-/* ─── Logo / Heading ─────────────────── */
-.logo{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  margin-bottom:38px;
-  text-align:center;
-}
-.logo h1{
-  font-size:32px;
-  font-weight:700;
-  background:linear-gradient(135deg,var(--gt-green) 0%,var(--gt-cyan) 50%,var(--gt-purple) 100%);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-}
-.logo p{color:var(--gt-muted);font-size:15px;}
-
-/* ─── Form ───────────────────────────── */
-.form{display:flex;flex-direction:column;gap:22px;}
-
-.input{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  border:1px solid var(--gt-border);
-  border-radius:var(--radius);
-  background:rgba(30,35,50,.8);
-  padding:0 14px;
-  transition:border-color .25s,box-shadow .25s,background .25s;
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-.input:focus-within{
-  border-color:var(--gt-green);
-  background:rgba(30,35,50,.95);
-  box-shadow:
-    0 0 0 3px rgba(0,255,136,.18),
-    0 8px 26px rgba(0,255,136,.10);
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.logo h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.logo p {
+  font-size: 14px;
+  color: #888888;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(30, 30, 30, 0.8);
+  border: 1px solid rgba(80, 80, 80, 0.3);
+  border-radius: 12px;
+  padding: 0 16px;
+  transition: all 0.3s ease;
+}
+
+.input:focus-within {
+  border-color: rgba(120, 120, 120, 0.6);
+  background: rgba(30, 30, 30, 0.95);
+  box-shadow: 0 0 0 3px rgba(120, 120, 120, 0.1);
 }
 
 .input svg,
-.input i,
-.input img{
-  color:var(--gt-muted);
-  flex-shrink:0;
+.input i {
+  color: #666666;
+  flex-shrink: 0;
 }
 
-.input input{
-  flex:1;
-  padding:14px 0;
-  background:transparent;
-  color:var(--gt-text);
-  font-size:15px;
-}
-.input input::placeholder{color:#64748b;}
-
-/* show / hide password icon */
-#toggleLogPassword{
-  cursor:pointer;
-  background:none;
-  border:none;
-  color:var(--gt-muted);
-  font-size:18px;
-  padding:6px;
-  border-radius:8px;
-}
-#toggleLogPassword:hover{color:var(--gt-text);background:rgba(255,255,255,.06);}
-
-/* ─── Buttons ───────────────────────── */
-.button{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin-top:8px;
-}
-.button button{
-  width:100%;
-  padding:14px 0;
-  border:none;
-  font-weight:700;
-  font-size:1rem;
-  border-radius:var(--radius);
-  color:#0f0f23;
-  background:linear-gradient(135deg,var(--gt-green) 0%,var(--gt-cyan) 50%,var(--gt-purple) 100%);
-  box-shadow:
-    0 10px 24px rgba(0,255,136,.28),
-    inset 0 1px 0 rgba(255,255,255,.25);
-  transition:transform .25s,box-shadow .25s;
-  cursor:pointer;
-}
-.button button:hover{
-  transform:translateY(-3px);
-  box-shadow:
-    0 16px 36px rgba(0,255,136,.38),
-    inset 0 1px 0 rgba(255,255,255,.32);
+.input input {
+  flex: 1;
+  padding: 14px 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #e5e5e5;
+  font-size: 15px;
 }
 
-/* Guest-login variant */
-#guestButton{
-  background:linear-gradient(135deg,#46c536 0%,#00b14d 100%);
-  box-shadow:
-    0 10px 24px rgba(70,197,54,.28),
-    inset 0 1px 0 rgba(255,255,255,.25);
-}
-#guestButton:hover{
-  transform:translateY(-3px);
-  box-shadow:
-    0 16px 36px rgba(70,197,54,.38),
-    inset 0 1px 0 rgba(255,255,255,.32);
+.input input::placeholder {
+  color: #666666;
 }
 
-/* ─── Small screens ─────────────────── */
-@media (max-width:480px){
-  .card{padding:38px 28px;}
-  .logo h1{font-size:28px;}
-}
-/* ==== 1. Kill the extra body padding & stop the page from scrolling ==== */
-html, body {
-  height: 100%;
-}
-body {
-  /* keep side-padding for nice left / right spacing, but remove top / bottom */
-  padding-block: 0;
-  overflow: hidden;            /* page itself never scrolls */
-  display: flex;               /* recenter after padding change */
-  align-items: center;
-  justify-content: center;
+#toggleLogPassword {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #666666;
+  font-size: 16px;
+  padding: 6px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
-/* ==== 2. Let the card shrink on small screens / low heights ==== */
-.card {
-  padding: 40px 36px;          /* a bit tighter than 48 / 44 */
-  max-height: 90vh;            /* never exceed the viewport */
-  overflow: auto;              /* if content still overflows, it scrolls *inside* */
+#toggleLogPassword:hover {
+  color: #888888;
+  background: rgba(255, 255, 255, 0.05);
 }
 
-/* ==== 3. Fallback for very small laptops or tablets (≤ 700 px tall) ==== */
-@media (max-height: 700px) {
-  .card { padding: 32px 28px; }
-  .logo h1 { font-size: 26px; }
-  .form { gap: 16px; }
+.button {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.button button {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Main login button - subtle dark theme */
+.button button:first-child {
+  background: linear-gradient(135deg, #404040 0%, #505050 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.button button:first-child:hover {
+  background: linear-gradient(135deg, #505050 0%, #606060 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Guest button - darker green */
+#guestButton {
+  background: linear-gradient(135deg, #2d4a2d 0%, #3a5a3a 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+#guestButton:hover {
+  background: linear-gradient(135deg, #3a5a3a 0%, #476647 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+  .card {
+    padding: 24px 20px;
+    max-width: 95vw;
+  }
+  
+  .logo h1 {
+    font-size: 22px;
+  }
+  
+  .form {
+    gap: 16px;
+  }
+}
+
+/* Short screens */
+@media (max-height: 600px) {
+  .card {
+    padding: 20px 24px;
+    max-height: 90vh;
+  }
+  
+  .logo {
+    margin-bottom: 20px;
+  }
+  
+  .form {
+    gap: 14px;
+  }
+  
+  .input input {
+    padding: 12px 0;
+  }
+  
+  .button button {
+    padding: 12px 16px;
+  }
+}
+
+/* Extra short screens */
+@media (max-height: 500px) {
+  body {
+    padding: 8px;
+  }
+  
+  .card {
+    padding: 16px 20px;
+    max-height: 95vh;
+  }
+  
+  .logo h1 {
+    font-size: 20px;
+  }
+  
+  .logo {
+    margin-bottom: 16px;
+  }
 }
