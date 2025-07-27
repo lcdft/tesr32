@@ -1,313 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
-
-/* Reset everything to ensure clean slate */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
-html, body {
-    height: 100%;
-    overflow: hidden;
-}
-
-/* Body - exact match to your original */
 body {
-    background-color: white;
+    background: transparent;
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
 }
 
-/* Login container - exact replica of your original */
-.card,
-.login-container {
-    background-color: #2a4f6c;
-    padding: 25px 25px 35px 25px;
+.card {
+    padding: 20px;
+    border: 3px solid #1b6385;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    color: white;
-    width: 600px;
-    height: auto;
-    min-height: 350px;
-    border: 5px solid #7ca8c3;
-    animation: containerFadeIn 0.5s ease-out;
-    transition: all 0.3s ease;
-}
-
-/* Logo/heading - matches your h2 styling */
-.logo h1,
-.card h2 {
-    width: 99%;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 26px;
-    margin-bottom: 30px;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    color: white;
+    background: linear-gradient(45deg, #1e698b, #194b6de8, #1e698b);
+    box-shadow: inset -2px 2px 0 #1760a5;
+    color: #eeeeee;
+    box-shadow: 0 5px 10px #19406d;
 }
 
 .logo {
-    margin-bottom: 0;
-}
-
-.logo p {
-    display: none; /* Hide subtitle to match original */
-}
-
-/* Form structure */
-.form {
-    display: block;
-    width: 100%;
-}
-
-/* Form groups - simplified */
-.form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 10px;
-    text-align: center;
 }
 
-.form-group label {
-    display: none; /* Hide labels like original */
+.form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-/* Input styling - EXACT match to your original */
-input,
-.form-group input,
-.input input {
-    width: 70%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 2px solid #7ab9d4;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #1c6586;
-    color: white;
-    text-align: left;
-    padding-left: 20px;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-/* Handle .input wrapper if present */
 .input {
-    width: 100%;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #194b6de8;
+    padding-left: 8px;
+    border: 1px solid #1760a5;
+    border-radius: 5px;
+}
+
+#toggleLogPassword:hover, #toggleLogPassword:active, #toggleLogPassword:focus, #toggleLogPassword {
+    cursor: pointer;
+    cursor: pointer;
     background: transparent;
+    outline: none;
+    cursor: pointer;
     border: none;
-    padding: 0;
-    margin: 10px 0;
-    display: block;
+    color: #eeeeee;
 }
 
-.input input {
-    width: 70%;
-    margin: 0;
+input {
+    padding: 8px 0;
+    background: transparent;
+    width: 100%;
+    color: #eeeeee;
 }
 
-/* Remove any icons or extra elements */
-.input svg,
-.input i,
-.password-toggle,
-#toggleLogPassword {
-    display: none !important;
-}
-
-/* Input focus - exact match */
-input:focus,
-.input input:focus {
-    transform: scale(1.02);
-    box-shadow: 0 0 15px rgba(122, 185, 212, 0.3);
+input, input:focus, input:active, input:hover, button {
+    border: none;
     outline: none;
 }
 
-/* Placeholder styling */
-input::placeholder,
-.input input::placeholder {
-    color: #7ab9d4;
-}
-
-/* Button styling - EXACT match to your original */
-button,
-.login-btn,
-.button button {
-    background-color: #02b8ff;
-    color: white;
-    padding: 10px 0;
-    width: calc(70% + 20px + 7px); /* Match input width + padding adjustment */
-    border: none;
-    border-radius: 5px;
-    font-size: 20px;
-    cursor: pointer;
-    margin-top: 2px;
-    font-weight: bold;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    border: 2px solid #78c1dc;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
 .button {
-    text-align: center;
-    margin-top: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
-/* Button hover - exact match */
-button:hover,
-.login-btn:hover,
-.button button:hover {
-    background-color: #00a0e0;
-    transform: translateY(-2px);
-    box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.4);
+.button button {
+    padding: 8px 10px;
+    background-color: #1b81e0;
+    border-radius: 5px;
+    color: #eeeeee;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1rem;
+    width: 100%;
 }
 
-button:active,
-.login-btn:active,
-.button button:active {
-    transform: translateY(1px);
-}
-
-/* Hide elements not in original */
-.divider,
-.social-login,
-.forgot-password {
-    display: none !important;
-}
-
-/* Register link - exact match */
-.signup-link {
-    color: #bd4e19;
-    font-size: 18px;
-    margin-top: 15px;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.signup-link a {
-    color: #bd4e19;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.signup-link a:hover {
-    color: #ff6b2b !important;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
-}
-
-/* Messages - exact positioning and styling */
-.message,
-.error-message,
-.success-message {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 15px 30px;
-    border-radius: 50px;
-    color: white;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1000;
-}
-
-.message.success,
-.success-message {
-    background-color: #02b8ff;
-    box-shadow: 0 4px 15px rgba(2, 184, 255, 0.3);
-}
-
-.message.error,
-.error-message {
-    background-color: #ff4646;
-    box-shadow: 0 4px 15px rgba(255, 70, 70, 0.3);
-}
-
-.message.show {
-    opacity: 1;
-}
-
-/* Show messages when displayed */
-.error-message:not([style*="display: none"]),
-.success-message:not([style*="display: none"]) {
-    opacity: 1;
-}
-
-/* Animations - exact match */
-@keyframes containerFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.form-success {
-    animation: successPulse 0.5s ease-out;
-}
-
-@keyframes successPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-}
-
-/* Mobile responsiveness */
-@media (max-width: 650px) {
-    .card,
-    .login-container {
-        width: 90%;
-        padding: 20px 20px 30px 20px;
-        min-height: 300px;
-    }
-    
-    .logo h1,
-    .card h2 {
-        font-size: 22px;
-    }
-    
-    input,
-    .form-group input,
-    .input input {
-        width: 80%;
-    }
-    
-    button,
-    .login-btn,
-    .button button {
-        width: calc(80% + 20px + 7px);
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 500px) {
-    .card,
-    .login-container {
-        width: 95%;
-        padding: 15px 15px 25px 15px;
-    }
-    
-    input,
-    .form-group input,
-    .input input {
-        width: 85%;
-        font-size: 15px;
-    }
-    
-    button,
-    .login-btn,
-    .button button {
-        width: calc(85% + 20px + 7px);
-        font-size: 17px;
-    }
+#guestButton {
+    background-color: #46c536e8;
+    color: #eeeeee;
 }
