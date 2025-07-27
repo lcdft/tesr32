@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
 
-/* Complete reset */
+/* Reset everything to ensure clean slate */
 * {
     margin: 0;
     padding: 0;
@@ -12,17 +12,18 @@ html, body {
     overflow: hidden;
 }
 
+/* Body - exact match to your original */
 body {
-    background-color: #f0f0f0; /* Light gray background instead of pure white */
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
     font-family: Arial, sans-serif;
-    padding: 20px;
 }
 
-/* Main container - exactly as your original design */
+/* Login container - exact replica of your original */
 .card,
 .login-container {
     background-color: #2a4f6c;
@@ -37,93 +38,93 @@ body {
     border: 5px solid #7ca8c3;
     animation: containerFadeIn 0.5s ease-out;
     transition: all 0.3s ease;
-    position: relative;
 }
 
-/* Logo section */
-.logo {
-    margin-bottom: 30px;
-}
-
-.logo h1 {
+/* Logo/heading - matches your h2 styling */
+.logo h1,
+.card h2 {
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 26px;
+    margin-bottom: 30px;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     color: white;
-    margin-bottom: 10px;
+}
+
+.logo {
+    margin-bottom: 0;
 }
 
 .logo p {
-    color: #7ab9d4;
-    font-size: 14px;
-    font-weight: normal;
+    display: none; /* Hide subtitle to match original */
 }
 
-/* Form container */
+/* Form structure */
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: block;
     width: 100%;
 }
 
-/* Form groups - clean structure */
+/* Form groups - simplified */
 .form-group {
-    width: 100%;
     margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
-/* Hide labels - your original doesn't show them */
 .form-group label {
-    display: none;
+    display: none; /* Hide labels like original */
 }
 
-/* Input styling - exact match to your original */
+/* Input styling - EXACT match to your original */
+input,
 .form-group input,
-.input input,
-input {
+.input input {
     width: 70%;
     padding: 12px;
-    padding-left: 20px;
+    margin: 10px 0;
     border: 2px solid #7ab9d4;
     border-radius: 5px;
     font-size: 16px;
     background-color: #1c6586;
     color: white;
     text-align: left;
+    padding-left: 20px;
     transition: all 0.3s ease;
-    margin: 10px 0;
+    display: inline-block;
 }
 
-/* Input container for compatibility */
+/* Handle .input wrapper if present */
 .input {
-    width: 70%;
-    display: flex;
-    align-items: center;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 10px 0;
+    display: block;
 }
 
 .input input {
-    width: 100%;
+    width: 70%;
     margin: 0;
 }
 
-/* Hide icons that shouldn't be in original design */
+/* Remove any icons or extra elements */
 .input svg,
 .input i,
 .password-toggle,
 #toggleLogPassword {
-    display: none;
+    display: none !important;
 }
 
-/* Input focus effect */
+/* Input focus - exact match */
 input:focus,
 .input input:focus {
     transform: scale(1.02);
     box-shadow: 0 0 15px rgba(122, 185, 212, 0.3);
     outline: none;
-    border-color: #7ab9d4;
 }
 
 /* Placeholder styling */
@@ -132,34 +133,33 @@ input::placeholder,
     color: #7ab9d4;
 }
 
-/* Button container */
-.button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 2px;
-}
-
-/* Button styling - exact match */
+/* Button styling - EXACT match to your original */
 button,
 .login-btn,
 .button button {
     background-color: #02b8ff;
     color: white;
     padding: 10px 0;
-    width: calc(70% + 20px + 27px); /* Match input width + padding */
-    border: 2px solid #78c1dc;
+    width: calc(70% + 20px + 7px); /* Match input width + padding adjustment */
+    border: none;
     border-radius: 5px;
     font-size: 20px;
     cursor: pointer;
+    margin-top: 2px;
     font-weight: bold;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    border: 2px solid #78c1dc;
     transition: all 0.3s ease;
-    margin: 0;
+    display: inline-block;
 }
 
-/* Button hover effects */
+.button {
+    text-align: center;
+    margin-top: 2px;
+}
+
+/* Button hover - exact match */
 button:hover,
 .login-btn:hover,
 .button button:hover {
@@ -174,14 +174,14 @@ button:active,
     transform: translateY(1px);
 }
 
-/* Hide elements not in original design */
+/* Hide elements not in original */
 .divider,
 .social-login,
 .forgot-password {
-    display: none;
+    display: none !important;
 }
 
-/* Signup link styling */
+/* Register link - exact match */
 .signup-link {
     color: #bd4e19;
     font-size: 18px;
@@ -201,7 +201,8 @@ button:active,
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
 }
 
-/* Message notifications */
+/* Messages - exact positioning and styling */
+.message,
 .error-message,
 .success-message {
     position: fixed;
@@ -217,23 +218,29 @@ button:active,
     z-index: 1000;
 }
 
+.message.success,
 .success-message {
     background-color: #02b8ff;
     box-shadow: 0 4px 15px rgba(2, 184, 255, 0.3);
 }
 
+.message.error,
 .error-message {
     background-color: #ff4646;
     box-shadow: 0 4px 15px rgba(255, 70, 70, 0.3);
 }
 
-/* Show messages when not hidden */
+.message.show {
+    opacity: 1;
+}
+
+/* Show messages when displayed */
 .error-message:not([style*="display: none"]),
 .success-message:not([style*="display: none"]) {
     opacity: 1;
 }
 
-/* Animations */
+/* Animations - exact match */
 @keyframes containerFadeIn {
     from {
         opacity: 0;
@@ -259,26 +266,26 @@ button:active,
 @media (max-width: 650px) {
     .card,
     .login-container {
-        width: 95%;
-        padding: 20px;
+        width: 90%;
+        padding: 20px 20px 30px 20px;
         min-height: 300px;
     }
     
-    .logo h1 {
+    .logo h1,
+    .card h2 {
         font-size: 22px;
     }
     
     input,
     .form-group input,
-    .input {
+    .input input {
         width: 80%;
-        font-size: 15px;
     }
     
     button,
     .login-btn,
     .button button {
-        width: calc(80% + 20px + 27px);
+        width: calc(80% + 20px + 7px);
         font-size: 18px;
     }
 }
@@ -286,21 +293,21 @@ button:active,
 @media (max-width: 500px) {
     .card,
     .login-container {
-        width: 98%;
-        padding: 15px;
+        width: 95%;
+        padding: 15px 15px 25px 15px;
     }
     
     input,
     .form-group input,
-    .input {
+    .input input {
         width: 85%;
-        font-size: 14px;
+        font-size: 15px;
     }
     
     button,
     .login-btn,
     .button button {
-        width: calc(85% + 20px + 27px);
-        font-size: 16px;
+        width: calc(85% + 20px + 7px);
+        font-size: 17px;
     }
 }
