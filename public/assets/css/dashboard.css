@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
 
-/* Reset and base styles */
+/* Complete reset */
 * {
     margin: 0;
     padding: 0;
@@ -13,18 +13,18 @@ html, body {
 }
 
 body {
-    background-color: white;
+    background-color: #f0f0f0; /* Light gray background instead of pure white */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
     font-family: Arial, sans-serif;
+    padding: 20px;
 }
 
-/* Main login container */
-.login-container,
-.card {
+/* Main container - exactly as your original design */
+.card,
+.login-container {
     background-color: #2a4f6c;
     padding: 25px 25px 35px 25px;
     border-radius: 10px;
@@ -37,90 +37,87 @@ body {
     border: 5px solid #7ca8c3;
     animation: containerFadeIn 0.5s ease-out;
     transition: all 0.3s ease;
+    position: relative;
 }
 
-/* Logo/heading styles */
+/* Logo section */
 .logo {
-    width: 99%;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 30px;
 }
 
-.logo h1,
-.login-container h2 {
+.logo h1 {
     font-size: 26px;
-    margin-bottom: 30px;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
     color: white;
+    margin-bottom: 10px;
 }
 
 .logo p {
     color: #7ab9d4;
-    font-size: 16px;
-    margin-top: -20px;
-    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: normal;
 }
 
-/* Form layout */
+/* Form container */
 .form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    width: 100%;
 }
 
+/* Form groups - clean structure */
 .form-group {
     width: 100%;
+    margin-bottom: 10px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px 0;
+    justify-content: center;
 }
 
+/* Hide labels - your original doesn't show them */
 .form-group label {
-    display: none; /* Hide labels to match original design */
+    display: none;
 }
 
-/* Input styles - matches your original exactly */
-.input,
+/* Input styling - exact match to your original */
 .form-group input,
+.input input,
 input {
     width: 70%;
     padding: 12px;
-    margin: 10px 0;
+    padding-left: 20px;
     border: 2px solid #7ab9d4;
     border-radius: 5px;
     font-size: 16px;
     background-color: #1c6586;
     color: white;
     text-align: left;
-    padding-left: 20px;
     transition: all 0.3s ease;
+    margin: 10px 0;
+}
+
+/* Input container for compatibility */
+.input {
+    width: 70%;
+    display: flex;
+    align-items: center;
 }
 
 .input input {
     width: 100%;
     margin: 0;
-    padding: 12px 20px;
 }
 
-.input {
-    width: 70%;
-    padding: 0;
-    background: transparent;
-    border: none;
-    display: flex;
-    align-items: center;
-}
-
+/* Hide icons that shouldn't be in original design */
 .input svg,
-.input i {
-    display: none; /* Hide icons to match original */
+.input i,
+.password-toggle,
+#toggleLogPassword {
+    display: none;
 }
 
-/* Input focus states */
+/* Input focus effect */
 input:focus,
 .input input:focus {
     transform: scale(1.02);
@@ -129,45 +126,40 @@ input:focus,
     border-color: #7ab9d4;
 }
 
+/* Placeholder styling */
 input::placeholder,
 .input input::placeholder {
     color: #7ab9d4;
 }
 
-/* Password toggle (hide if present) */
-.password-toggle,
-#toggleLogPassword {
-    display: none;
+/* Button container */
+.button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2px;
 }
 
-/* Button styles - matches your original exactly */
+/* Button styling - exact match */
+button,
 .login-btn,
-.button button,
-button {
+.button button {
     background-color: #02b8ff;
     color: white;
     padding: 10px 0;
-    width: calc(72% + 27px);
-    border: none;
+    width: calc(70% + 20px + 27px); /* Match input width + padding */
+    border: 2px solid #78c1dc;
     border-radius: 5px;
     font-size: 20px;
     cursor: pointer;
-    margin-top: 2px;
     font-weight: bold;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    border: 2px solid #78c1dc;
     transition: all 0.3s ease;
+    margin: 0;
 }
 
-.button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin-top: 10px;
-}
-
+/* Button hover effects */
 button:hover,
 .login-btn:hover,
 .button button:hover {
@@ -182,16 +174,15 @@ button:active,
     transform: translateY(1px);
 }
 
-/* Hide social login and other elements not in original */
+/* Hide elements not in original design */
 .divider,
 .social-login,
 .forgot-password {
     display: none;
 }
 
-/* Register/signup link */
-.signup-link,
-.register-link {
+/* Signup link styling */
+.signup-link {
     color: #bd4e19;
     font-size: 18px;
     margin-top: 15px;
@@ -199,21 +190,18 @@ button:active,
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.signup-link a,
-.register-link a {
+.signup-link a {
     color: #bd4e19;
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.signup-link a:hover,
-.register-link a:hover {
+.signup-link a:hover {
     color: #ff6b2b !important;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
 }
 
-/* Message styles */
-.message,
+/* Message notifications */
 .error-message,
 .success-message {
     position: fixed;
@@ -227,22 +215,19 @@ button:active,
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 1000;
-    display: block;
 }
 
-.message.success,
 .success-message {
     background-color: #02b8ff;
     box-shadow: 0 4px 15px rgba(2, 184, 255, 0.3);
 }
 
-.message.error,
 .error-message {
     background-color: #ff4646;
     box-shadow: 0 4px 15px rgba(255, 70, 70, 0.3);
 }
 
-.message.show,
+/* Show messages when not hidden */
 .error-message:not([style*="display: none"]),
 .success-message:not([style*="display: none"]) {
     opacity: 1;
@@ -270,47 +255,52 @@ button:active,
     100% { transform: scale(1); }
 }
 
-/* Responsive design */
-@media (max-width: 700px) {
-    .login-container,
-    .card {
-        width: 90%;
+/* Mobile responsiveness */
+@media (max-width: 650px) {
+    .card,
+    .login-container {
+        width: 95%;
         padding: 20px;
         min-height: 300px;
     }
     
-    .logo h1,
-    .login-container h2 {
+    .logo h1 {
         font-size: 22px;
     }
     
     input,
+    .form-group input,
     .input {
         width: 80%;
+        font-size: 15px;
     }
     
     button,
-    .login-btn {
-        width: calc(82% + 27px);
+    .login-btn,
+    .button button {
+        width: calc(80% + 20px + 27px);
+        font-size: 18px;
     }
 }
 
 @media (max-width: 500px) {
-    .login-container,
-    .card {
-        width: 95%;
+    .card,
+    .login-container {
+        width: 98%;
         padding: 15px;
     }
     
     input,
+    .form-group input,
     .input {
-        width: 90%;
+        width: 85%;
         font-size: 14px;
     }
     
     button,
-    .login-btn {
-        width: calc(92% + 27px);
-        font-size: 18px;
+    .login-btn,
+    .button button {
+        width: calc(85% + 20px + 27px);
+        font-size: 16px;
     }
 }
