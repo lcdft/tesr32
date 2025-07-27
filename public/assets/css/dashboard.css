@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
 
 * {
-    box-sizing: border-box;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
 }
 
 body {
@@ -12,51 +13,54 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: Arial, sans-serif;
 }
 
-.login-container {
+.card {
     background-color: #2a4f6c;
     padding: 25px 25px 35px 25px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
     color: white;
     width: 600px;
-    height: auto;
     min-height: 350px;
     border: 5px solid #7ca8c3;
     animation: containerFadeIn 0.5s ease-out;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
-.login-container h2 {
-    width: 99%;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 26px;
+.logo {
     margin-bottom: 30px;
+    font-size: 26px;
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-input {
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.input {
     width: 70%;
-    padding: 12px;
-    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    background-color: #1c6586;
     border: 2px solid #7ab9d4;
     border-radius: 5px;
-    font-size: 16px;
-    background-color: #1c6586;
-    color: white;
-    text-align: left;
-    padding-left: 20px;
+    padding-left: 10px;
     transition: all 0.3s ease;
 }
 
-input:focus {
-    transform: scale(1.02);
-    box-shadow: 0 0 15px rgba(122, 185, 212, 0.3);
+input {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
     outline: none;
 }
 
@@ -64,7 +68,25 @@ input::placeholder {
     color: #7ab9d4;
 }
 
-button {
+input:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(122, 185, 212, 0.3);
+}
+
+#toggleLogPassword {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.button button {
     background-color: #02b8ff;
     color: white;
     padding: 10px 0;
@@ -73,7 +95,6 @@ button {
     border-radius: 5px;
     font-size: 20px;
     cursor: pointer;
-    margin-top: 2px;
     font-weight: bold;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
@@ -81,31 +102,19 @@ button {
     transition: all 0.3s ease;
 }
 
-button:hover {
+.button button:hover {
     background-color: #00a0e0;
     transform: translateY(-2px);
     box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.4);
 }
 
-button:active {
+.button button:active {
     transform: translateY(1px);
 }
 
-.register-link {
-    color: #bd4e19;
-    font-size: 18px;
-    margin-top: 15px;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.register-link a {
-    transition: all 0.3s ease;
-}
-
-.register-link a:hover {
-    color: #ff6b2b !important;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+#guestButton {
+    background-color: #46c536e8;
+    color: white;
 }
 
 @keyframes containerFadeIn {
@@ -117,42 +126,4 @@ button:active {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.form-success {
-    animation: successPulse 0.5s ease-out;
-}
-
-@keyframes successPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-}
-
-.message {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 15px 30px;
-    border-radius: 50px;
-    color: white;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 1000;
-}
-
-.message.success {
-    background-color: #02b8ff;
-    box-shadow: 0 4px 15px rgba(2, 184, 255, 0.3);
-}
-
-.message.error {
-    background-color: #ff4646;
-    box-shadow: 0 4px 15px rgba(255, 70, 70, 0.3);
-}
-
-.message.show {
-    opacity: 1;
 }
